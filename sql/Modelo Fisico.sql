@@ -62,6 +62,9 @@ create table professor(
     constraint fk_professor_bairro foreign key (idBairro) references bairro (idBairro)
 );
 
+insert into professor values
+(default, 'admin', 1509442, 'ADMIN', '2015-06-22', 'ADMINISTRADOR', '123456789','', '12345678910',null);
+
 create table designa
 (
     idAluno bigint,
