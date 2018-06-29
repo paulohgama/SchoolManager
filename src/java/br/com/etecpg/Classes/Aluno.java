@@ -1,33 +1,69 @@
 package br.com.etecpg.Classes;
 
+import java.util.Date;
+
 /**
  *
  * @author PauloHGama
  */
 public class Aluno {
-    private int ra;
+    private long hashSenha;
+    private String user;
+    private long id;
     private String nome;
-    private String dtnasci;
-    private String dtMatri;
+    private Date data;
     private String rg;
+    private String image;
     private String cpf;
-    private String lagradouro;
-    private int lagraNumero;
-    private String bairro;
-    private String cidade;
-    private String estado;
-    private String estCivil;
-    private String cep;
-    private String email;
-    private String[] telefones;
-    private String rgEmissor;
+    private long bairro;
 
-    public int getRa() {
-        return ra;
+    public Aluno(long hashSenha, String user) {
+        this.hashSenha = hashSenha;
+        this.user = user;
     }
 
-    public void setRa(int ra) {
-        this.ra = ra;
+    public Aluno(long hashSenha, String user, long id, String nome, Date data, String rg, String image, String cpf, long bairro) {
+        this.hashSenha = hashSenha;
+        this.user = user;
+        this.id = id;
+        this.nome = nome;
+        this.data = data;
+        this.rg = rg;
+        this.image = image;
+        this.cpf = cpf;
+        this.bairro = bairro;
+    }
+
+    public long getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(long bairro) {
+        this.bairro = bairro;
+    }
+
+    public long getHashSenha() {
+        return hashSenha;
+    }
+
+    public void setHashSenha(long hashSenha) {
+        this.hashSenha = hashSenha;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -38,20 +74,12 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public String getDtnasci() {
-        return dtnasci;
+    public Date getData() {
+        return data;
     }
 
-    public void setDtnasci(String dtnasci) {
-        this.dtnasci = dtnasci;
-    }
-
-    public String getDtMatri() {
-        return dtMatri;
-    }
-
-    public void setDtMatri(String dtMatri) {
-        this.dtMatri = dtMatri;
+    public void setData(Date data) {
+        this.data = data;
     }
 
     public String getRg() {
@@ -62,92 +90,20 @@ public class Aluno {
         this.rg = rg;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public String getCpf() {
         return cpf;
     }
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public String getLagradouro() {
-        return lagradouro;
-    }
-
-    public void setLagradouro(String lagradouro) {
-        this.lagradouro = lagradouro;
-    }
-
-    public int getLagraNumero() {
-        return lagraNumero;
-    }
-
-    public void setLagraNumero(int lagraNumero) {
-        this.lagraNumero = lagraNumero;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public String getEstCivil() {
-        return estCivil;
-    }
-
-    public void setEstCivil(String estCivil) {
-        this.estCivil = estCivil;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String[] getTelefones() {
-        return telefones;
-    }
-
-    public void setTelefones(String[] telefones) {
-        this.telefones = telefones;
-    }
-
-    public String getRgEmissor() {
-        return rgEmissor;
-    }
-
-    public void setRgEmissor(String rgEmissor) {
-        this.rgEmissor = rgEmissor;
     }
     
     

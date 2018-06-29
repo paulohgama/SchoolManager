@@ -1,0 +1,72 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="br.com.etecpg.Classes.GetUser"%>
+<%@ page pageEncoding="UTF-8" %>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<%
+    String path = request.getContextPath();
+    String errorMessage = null;
+    if(request.getParameter("formLogin")!=null)
+    {
+        String login = request.getParameter("user");
+        String password = request.getParameter("pass");
+        GetUser u = GetUser.getUser(login, password);
+        if(u==null)
+        {
+            errorMessage = "Usuario e/ou senha invalido(s)";
+        }
+        else
+        {
+            session.setAttribute("user", u);
+            response.sendRedirect(request.getRequestURI());
+        }
+    }
+    if(request.getParameter("formLogoff") != null)
+    {
+        session.removeAttribute("user");
+        response.sendRedirect(request.getRequestURI());
+    }
+%>
+<%  if(session.getAttribute("user") == null)
+{%>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <form class="form-inline">
+        <input class="form-control mr-sm-2" type="text" name="user" placeholder="Login">
+        <input class="form-control mr-sm-2" type="password" name="pass" placeholder="Senha">
+        <button class="btn btn-success" type="submit" name="formLogin" value="Entrar">Entrar</button>
+      </form>
+    </nav>
+<%}
+else {
+     GetUser u = (GetUser) session.getAttribute("user");
+%>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">SchoolManager</a>
+        <ul class="navbar-nav">
+        <%if(u.getUser().equals("admin")){%>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Professor</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="<%=path%>/cadastroProfessor.jsp">Cadastrar</a>
+                    <a class="dropdown-item" href="#">Alterar</a>
+                    <a class="dropdown-item" href="#">Excluir</a>
+                    <a class="dropdown-item" href="#">Listar</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Aluno</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="<%=path%>/cadastroAluno.jsp">Cadastrar</a>
+                    <a class="dropdown-item" href="#">Alterar</a>
+                    <a class="dropdown-item" href="#">Excluir</a>
+                    <a class="dropdown-item" href="#">Listar</a>
+                </div>
+            </li>
+        <%}%>
+      </ul>
+    </nav>
+    <br/>
+<%}%>
+
