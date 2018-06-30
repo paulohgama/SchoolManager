@@ -45,7 +45,7 @@ else {
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <a class="navbar-brand" href="#">SchoolManager</a>
         <ul class="navbar-nav">
-        <%if(u.getUser().equals("admin")){%>
+        <%if(u.getId()== 1){%>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Professor</a>
                 <div class="dropdown-menu">

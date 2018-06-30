@@ -13,9 +13,10 @@
     </head>
     <body>
         <%@include file="WEB-INF/jspf/navbar.jspf" %>
-        <%GetUser u = (GetUser) session.getAttribute("user");%>
+        <% if(session.getAttribute("user") != null){ %><%GetUser u = (GetUser) session.getAttribute("user");%>
         <div class="container">
-            <h3>Bem Vindo, <%= u.getUser() %></h3>
+            <h3>Bem Vindo, <%= u.getNome()%></h3>
         </div>
+        <%}%>
     </body>
 </html>
